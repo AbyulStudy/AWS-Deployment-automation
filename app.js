@@ -3,9 +3,13 @@ const express = require('express');
 const app = express();
 const port = 80;
 const mysql = require('mysql2');
+const fs = require('fs');
 
 // mysql Connection
 const connection = mysql.createConnection({
+    ssl: {
+        ca:fs.readFileSync('./global-bundle.pem')
+    },
     host: `${process.env.DATABASE_HOST}`,
     user: `${process.env.DATABASE_USER}`,
     password: `${process.env.DATABASE_PASSWORD}`,
