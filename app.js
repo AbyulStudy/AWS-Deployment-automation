@@ -22,9 +22,8 @@ app.get('/', (req,res) => {
     connection.query(
         'SELECT * FROM `BOARD_QA`',
         function (err,res,fields){
-            console.error(err);
-            console.log(res);
-            console.log(fields);
+            console.error('MYSQL err : ', err);
+            console.log('MYSQL res : ',res);
         }
     )
     
